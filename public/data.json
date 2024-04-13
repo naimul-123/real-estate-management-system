@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "estate_title": "Modern Condo in Downtown",
+        "segment_name": "Luxury",
+        "description": "Beautiful modern condo located in the heart of downtown. Spacious rooms, high-end appliances, and stunning views of the city skyline.",
+        "price": "$1,200,000",
+        "status": "sale",
+        "image": "https://example.com/condo_image1.jpg"
+    },
+    {
+        "id": 2,
+        "estate_title": "Charming Family Home",
+        "segment_name": "Family",
+        "description": "Lovely family home in a quiet neighborhood. Features a large backyard, updated kitchen, and cozy living spaces perfect for family gatherings.",
+        "price": "$500,000",
+        "status": "sale",
+        "image": "https://example.com/home_image1.jpg"
+    },
+    {
+        "id": 3,
+        "estate_title": "Luxury Penthouse with Ocean View",
+        "segment_name": "Luxury",
+        "description": "Stunning penthouse with panoramic ocean views. This luxurious residence features top-of-the-line finishes, spacious rooms, and exclusive amenities.",
+        "price": "$3,500,000",
+        "status": "sale",
+        "image": "https://example.com/penthouse_image1.jpg"
+    },
+    {
+        "id": 4,
+        "estate_title": "Cozy Apartment Near Park",
+        "segment_name": "Affordable",
+        "description": "Cozy apartment conveniently located near a beautiful park. Perfect for singles or couples looking for a comfortable and affordable living space.",
+        "price": "$200,000",
+        "status": "sale",
+        "image": "https://example.com/apartment_image1.jpg"
+    },
+    {
+        "id": 5,
+        "estate_title": "Spacious Villa with Pool",
+        "segment_name": "Luxury",
+        "description": "Exquisite villa with a private pool and lush garden. Ideal for those seeking privacy and luxury in a tranquil setting.",
+        "price": "$2,000,000",
+        "status": "sale",
+        "image": "https://example.com/villa_image1.jpg"
+    },
+    {
+        "id": 6,
+        "estate_title": "Modern Loft in Arts District",
+        "segment_name": "Urban",
+        "description": "Sleek and stylish loft located in the vibrant arts district. Industrial design elements combined with modern amenities create a unique urban living experience.",
+        "price": "$800,000",
+        "status": "sale",
+        "image": "https://example.com/loft_image1.jpg"
+    },
+    {
+        "id": 7,
+        "estate_title": "Lakefront Cabin Retreat",
+        "segment_name": "Retreat",
+        "description": "Quaint cabin nestled on the shores of a serene lake. Perfect for a weekend getaway or as a peaceful year-round residence.",
+        "price": "$300,000",
+        "status": "sale",
+        "image": "https://example.com/cabin_image1.jpg"
+    },
+    {
+        "id": 8,
+        "estate_title": "Downtown Apartment for Rent",
+        "segment_name": "Urban",
+        "description": "Modern apartment available for rent in the bustling downtown area. Walking distance to restaurants, shops, and public transportation.",
+        "price": "$2,500/month",
+        "status": "rent",
+        "image": "https://example.com/apartment_image2.jpg"
+    },
+    {
+        "id": 9,
+        "estate_title": "Family Home for Rent with Yard",
+        "segment_name": "Family",
+        "description": "Spacious family home available for rent with a large yard and plenty of room for kids to play. Close to schools and parks.",
+        "price": "$3,000/month",
+        "status": "rent",
+        "image": "https://example.com/home_image2.jpg"
+    }
+]
