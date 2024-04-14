@@ -2,17 +2,19 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form"
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import auth from "../firebase/firebase.config";
+import { useContext, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 const LogIn = () => {
     const [isShow, setIsShow] = useState(false)
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const {signIn} = useContext(AuthContext)
     const handleLogin = (data) => {
         const email = data.email
         const password = data.password;
-        signInWithEmailAndPassword(auth, email, password)
+        signIn(email, password)
             .then(result => console.log(result.user))
+        .catch((error)=> console.log(error))
     }
 
     return (

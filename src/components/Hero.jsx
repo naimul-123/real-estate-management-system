@@ -10,12 +10,10 @@ import 'swiper/css/navigation';
 // import required modules
 import { Navigation } from 'swiper/modules';
 
-import { DataContext } from '../App';
+
 import Slider from './Slider';
 
-const Hero = () => {
-    const data = useContext(DataContext);
-    // console.log(data)
+const Hero = ({data}) => {
 
     return (
         <>

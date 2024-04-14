@@ -1,36 +1,32 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { Outlet } from "react-router-dom"
-import AuthProvider, { AuthContext } from "./providers/AuthProvider";
-export const DataContext = createContext()
+import { createContext, useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+export const DataContext = createContext();
 
 function App() {
-  const [data, setData] = useState();
+	const [data, setData] = useState();
 
+	useEffect(() => {
+		const dataloader = async () => {
+			const res = await fetch('./data.json');
+			const data = await res.json();
+			setData(data);
+		};
 
-  useEffect(() => {
-    const dataloader = async () => {
-      const res = await fetch('./data.json');
-      const data = await res.json();
-      setData(data)
+		dataloader();
+	}, []);
 
-    }
-
-    dataloader();
-  }, [])
-
-
-
-  return (
-    <div>
-      <DataContext.Provider value={data} >
-        <AuthProvider>
-          <Outlet></Outlet>
-        </AuthProvider>
-
-      </DataContext.Provider>
-
-    </div>
-  )
+	return (
+		<div className='max-w-screen-2xl mx-auto px-8'>
+			<DataContext.Provider value={data}>
+				<Navbar></Navbar>
+				<Outlet></Outlet>
+				<Footer></Footer>
+			</DataContext.Provider>
+		</div>
+	);
 }
 
-export default App
+export default App;

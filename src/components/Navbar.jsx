@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
-    const [isLogedIn, setIsLogedIn] = useState(false)
+    const { user, logOut} = useContext(AuthContext)
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch();
+    }
+
     return (
         <>
 
@@ -42,10 +49,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {isLogedIn ? <div className="relative group">
+                    {user ? <div className="relative group">
                         <div className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
                             </div>
                         </div>
                         <ul className="hidden group-hover:block absolute right-0 z-20 p-2 shadow bg-base-100 rounded-box w-52">
@@ -56,7 +63,7 @@ const Navbar = () => {
                                 </a>
                             </li>
                             <li><a>Settings</a></li>
-                            <li><Link className='btn btn-sm btn-secondary'>Log Out</Link></li>
+                            <li><Link className='btn btn-sm btn-secondary' onClick={handleSignOut}>Log Out</Link></li>
                         </ul>
                     </div> : <Link to='/login' className='btn btn-sm btn-secondary'>Log in</Link>}
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Slider = ({ singleData }) => {
-    console.log(singleData)
+   
     const { image, estate_title, description } = singleData;
     return (
         <div className='relative max-h-[80vh]'>
