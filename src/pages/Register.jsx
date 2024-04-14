@@ -1,16 +1,28 @@
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form"
+import { signOut, updateProfile } from 'firebase/auth';
+import auth from '../firebase/firebase.config';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Register = () => {
-    const [error, setError] = useState([]);
     const [isShow, setIsShow] = useState(false)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const handelRegister = () => {
-        
 
+    const { createUser } = useContext(AuthContext);
+    const handelRegister = (data) => {
+        const email = data.email;
+        const password = data.password;
+        const name = data.name;
+        const photoUrl = data.photo;
+        createUser(email, password)
+            .then(() => {
+                updateProfile(auth.currentUser, { displayName: name, photoURL: photoUrl })
+                    .then(() => signOut(auth));
+            })
+            .catch((error) => console.log(error.message))
     }
 
     return (
@@ -20,7 +32,7 @@ const Register = () => {
                     <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
                 <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-                    <form className="card-body" onSubmit={handleSubmit((data) => { console.log(data) })}>
+                    <form className="card-body" onSubmit={handleSubmit((data) => { handelRegister(data) })}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -47,10 +59,11 @@ const Register = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <div className="input input-bordered flex items-center gap-2">
-                                <input type={isShow ? "text" : "password"} {...register('password',  {required: 'Password must be required.', minLength: { value: 6, message: 'Password must be atleast 6 charecters' }, validate: {
-            uppercase: value => /[A-Z]/.test(value) || "Password must contain at least one uppercase letter.",
-            lowercase: value => /[a-z]/.test(value) || "Password must contain at least one lowercase letter."
-          } })} placeholder="password" className="grow" />
+                                <input type={isShow ? "text" : "password"} {...register('password', {
+                                    required: 'Password must be required.', minLength: { value: 6, message: 'Password must be atleast 6 charecters' }, validate: {
+                                        uppercase: value => /[A-Z]/.test(value) || "Password must have at least one uppercase letter.", lowercase: value => /[a-z]/.test(value) || "Password must have at least one lowercase letter."
+                                    }
+                                })} placeholder="password" className="grow" />
                                 <span className='badge' onClick={() => setIsShow(!isShow)}>{isShow ? <FaEyeSlash /> : <FaEye />}</span>
 
                             </div>

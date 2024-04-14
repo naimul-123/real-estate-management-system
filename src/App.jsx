@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom"
+import AuthProvider, { AuthContext } from "./providers/AuthProvider";
 export const DataContext = createContext()
 
 function App() {
@@ -22,7 +23,10 @@ function App() {
   return (
     <div>
       <DataContext.Provider value={data} >
-        <Outlet></Outlet>
+        <AuthProvider>
+          <Outlet></Outlet>
+        </AuthProvider>
+
       </DataContext.Provider>
 
     </div>

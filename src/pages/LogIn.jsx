@@ -3,15 +3,16 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form"
 import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import auth from "../firebase/firebase.config";
 const LogIn = () => {
     const [isShow, setIsShow] = useState(false)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const handleLogin = (e) => {
-        e.preventDefault();
-        const form = new FormData(e.currentTarget);
-        const email = form.get('email');
-        const password = form.get('password');
-        console.log(email, password)
+    const handleLogin = (data) => {
+        const email = data.email
+        const password = data.password;
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => console.log(result.user))
     }
 
     return (
@@ -21,7 +22,7 @@ const LogIn = () => {
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
                 <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-                    <form className="card-body" onSubmit={handleSubmit((data) => console.log(data))}>
+                    <form className="card-body" onSubmit={handleSubmit((data) => handleLogin(data))}>
 
                         <div className="form-control">
                             <label className="label">

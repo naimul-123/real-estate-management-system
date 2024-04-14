@@ -48,7 +48,7 @@ const Navbar = () => {
                                 <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                             </div>
                         </div>
-                        <ul className="hidden group-hover:block absolute right-0 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul className="hidden group-hover:block absolute right-0 z-20 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
                                 <a className="justify-between">
                                     Profile
