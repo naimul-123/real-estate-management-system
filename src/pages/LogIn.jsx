@@ -85,14 +85,14 @@ const LogIn = () => {
 			<Helmet>
 				<title>Login</title>
 			</Helmet>
-			<div className='hero min-h-[80vh] bg-base-200'>
+			<div className='flex items-center justify-center min-h-screen bg-base-200'>
 				<div className='hero-content flex-col'>
 					<div className='text-center'>
-						<h1 className='text-5xl font-bold'>Login now!</h1>
+						<h1 className='text-3xl font-bold'>Login now!</h1>
 					</div>
-					<div className='card shrink-0 w-full max-w-lg shadow-2xl bg-base-100'>
+					<div className='card w-full shadow-2xl bg-base-100'>
 						<form
-							className='card-body'
+							className='flex flex-col p-4 md:p-8 lg:p-16'
 							onSubmit={handleSubmit((data) => handleLogin(data))}>
 							<div className='form-control'>
 								<label className='label'>

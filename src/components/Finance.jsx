@@ -1,7 +1,7 @@
 const Finance = () => {
 	return (
 		<div>
-			<div className='bg-gray-200 p-10'>
+			<div className='bg-gray-200 p-2 md:p-4 lg:p-10'>
 				<div className='w-full mx-auto text-gray-900 my-8 text-center space-y-4'>
 					<h2 className='text-2xl md:text-3xl lg:text-5xl text-gray-900 font-bold'>
 						How to finance with HavenHunt Home Loans

@@ -66,8 +66,8 @@ const Navbar = () => {
 				<div className='navbar-end'>
 					{user ? (
 						<div className=' flex items-center gap-2'>
-							<div className='group'>
-								<div className='btn hidden min-[425px]:block group-hover:hidden btn-ghost btn-circle avatar'>
+							<div className='group relative'>
+								<div className='btn   group-hover:hidden btn-ghost btn-circle avatar'>
 									<div className='w-10  rounded-full'>
 										<img
 											className=''
@@ -76,13 +76,35 @@ const Navbar = () => {
 										/>
 									</div>
 								</div>
-								<p className='hidden text-xl font-bold text-gray-900 group-hover:block'>
+								<p className='hidden text-xl font-bold text-gray-900 sm:group-hover:block'>
 									{user?.displayName}
 								</p>
+								<div className='max-[641px]:group-hover:flex flex-col hidden absolute z-10 my-4 right-0 justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-gray-200 text-gray-900'>
+									<img
+										src={user?.photoURL}
+										alt=''
+										className='w-24 h-24 mx-auto rounded-full bg-gray-500 aspect-square'
+									/>
+									<div className='space-y-4  text-center divide-y divide-gray-700 '>
+										<div className='my-2 space-y-1'>
+											<h2 className='text-xl font-semibold sm:text-2xl'>
+												{user?.displayName}
+											</h2>
+											<p className='px-5 text-xs sm:text-base text-gray-400'>
+												{user?.email}
+											</p>
+											<Link
+												className='btn btn-sm btn-secondary'
+												onClick={handleSignOut}>
+												Log Out
+											</Link>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<Link
-								className='btn btn-sm btn-secondary'
+								className='btn hidden sm:inline-flex btn-sm btn-secondary'
 								onClick={handleSignOut}>
 								Log Out
 							</Link>
@@ -96,7 +118,7 @@ const Navbar = () => {
 							</Link>
 							<Link
 								to='/register'
-								className='btn btn-sm btn-secondary'>
+								className='btn hidden sm:inline-flex btn-sm btn-secondary'>
 								Register
 							</Link>
 						</div>

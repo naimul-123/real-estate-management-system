@@ -28,7 +28,7 @@ const Hero = ({ data }) => {
 				pagination={{ clickable: true }}
 				scrollbar={{ draggable: true }}
 				modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
-				spaceBetween={50}
+				spaceBetween={40}
 				slidesPerView={1}
 				// onSlideChange={() => console.log('slide change')}
 				// onSwiper={(swiper) => console.log(swiper)}
