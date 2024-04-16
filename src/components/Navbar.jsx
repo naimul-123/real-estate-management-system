@@ -67,7 +67,7 @@ const Navbar = () => {
 					{user ? (
 						<div className=' flex items-center gap-2'>
 							<div className='group'>
-								<div className='btn group-hover:hidden btn-ghost btn-circle avatar'>
+								<div className='btn hidden min-[425px]:block group-hover:hidden btn-ghost btn-circle avatar'>
 									<div className='w-10  rounded-full'>
 										<img
 											className=''
