@@ -15,25 +15,17 @@ const UpdateProfile = () => {
 		formState: { errors },
 	} = useForm();
 	const navigate = useNavigate();
-	const { user, createUser, logOut } = useContext(AuthContext);
+	const { user, updateUser, logOut } = useContext(AuthContext);
 	const handleSignOut = () => {
 		logOut().then().catch();
 	};
-    const handelRegister = (data) => {
-
-        const name = data.name;
-        const photoUrl = data.photo;
-        updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: photoUrl,
-        }
-                
-        )
-            
-
-            .then(() => navigate('/'));
-        
-    }
+	const handleUpdateUser = (data) => {
+		const name = data.name;
+		const photoUrl = data.photo;
+		updateUser(name, photoUrl)
+			.then(() => navigate('/'))
+			.catch((error) => console.log(error.message));
+	};
 
 	return (
 		<div>
@@ -41,8 +33,8 @@ const UpdateProfile = () => {
 				<title>updateProfile</title>
 			</Helmet>
 			<div className='hero min-h-[80vh] w-full bg-base-200'>
-				<div className='flex items-center justify-between flex-col lg:flex-row lg:gap-2'>
-					<div className=' flex flex-col items-center text-center w-full max-w-md'>
+				<div className='flex  items-center justify-between  flex-col lg:flex-row  flex-grow lg:gap-20'>
+					<div className='text-center flex-shrink-0'>
 						<img
 							src={user?.photoURL}
 							alt=''
@@ -68,14 +60,14 @@ const UpdateProfile = () => {
 						<form
 							className='card-body'
 							onSubmit={handleSubmit((data) => {
-								handelRegister(data);
+								handleUpdateUser(data);
 							})}>
 							<div className='form-control'>
 								<label className='label'>
 									<span className='label-text'>Name</span>
 								</label>
-                                <input
-                                    defaultValue={user.displayName}
+								<input
+									defaultValue={user.displayName}
 									type='text'
 									{...register('name', { required: 'Name must be required.' })}
 									placeholder='Name'
@@ -90,8 +82,8 @@ const UpdateProfile = () => {
 									<span className='label-text'>Photo Url</span>
 								</label>
 								<input
-                                    type='text'
-                                defaultValue={user.photoURL}
+									type='text'
+									defaultValue={user.photoURL}
 									{...register('photo', {
 										required: 'photo must be required.',
 									})}
@@ -106,7 +98,6 @@ const UpdateProfile = () => {
 							<div className='form-control mt-6'>
 								<button className='btn btn-primary'>Update</button>
 							</div>
-
 						</form>
 					</div>
 				</div>

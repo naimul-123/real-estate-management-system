@@ -2,11 +2,14 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataContext } from '../App';
 import GeoLocation from '../components/GeoLocation';
+import { AuthContext } from '../providers/AuthProvider';
 
 
 
 const EstateDetails = () => {
 	const { id } = useParams();
+	const { user } = useContext(AuthContext)
+	console.log(user);
 	const estates = useContext(DataContext);
 	const estate = estates.find((e) => e.id == id);
 

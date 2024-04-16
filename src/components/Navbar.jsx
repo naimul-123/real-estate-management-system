@@ -8,6 +8,7 @@ const Navbar = () => {
     
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/homeloans">Home Loans</NavLink></li>
         {user && <li><NavLink to="/updateProfile">Update Profile</NavLink></li>}
         
     

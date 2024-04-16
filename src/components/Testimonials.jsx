@@ -8,7 +8,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import TestimonialCard from './TestimonialCard';
 
 const Testimonials = ({ testimonialsData }) => {
-	console.log(testimonialsData);
+
 	return (
 		<div className='bg-gray-500 container p-24'>
 			<h2 className='text-4xl text-gray-100 font-semibold text-center  my-5'>

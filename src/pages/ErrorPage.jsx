@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const ErrorPage = () => {
 	return (
@@ -16,9 +15,8 @@ const ErrorPage = () => {
 						But dont worry, you can find plenty of other things on our homepage.
 					</p>
 					<Link
-						rel='noopener noreferrer'
 						to='/'
-						className='px-8 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50'>
+						className='px-8 py-3 font-semibold rounded bg-violet-600 text-gray-50'>
 						Back to homepage
 					</Link>
 				</div>

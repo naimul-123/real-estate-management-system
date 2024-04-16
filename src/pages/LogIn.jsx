@@ -5,11 +5,25 @@ import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const LogIn = () => {
 	const [isShow, setIsShow] = useState(false);
-
+	const [errorMsg, setErrorMsg] = useState(null);
 	const navigate = useNavigate();
 	const location = useLocation();
+	const notify = () =>
+		toast('Successfully loged in!', {
+			position: 'top-center',
+		});
+	const googleNotify = () =>
+		toast('Successfully loged in with google!', {
+			position: 'top-center',
+		});
+	const githubNotify = () =>
+		toast('Successfully loged in with github!', {
+			position: 'top-center',
+		});
 
 	// console.log('location from login', location.state);
 
@@ -18,22 +32,46 @@ const LogIn = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const { signIn, googleSignIn } = useContext(AuthContext);
+	const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 	const handleLogin = (data) => {
 		const email = data.email;
 		const password = data.password;
 		signIn(email, password)
+			.then(notify())
 			.then(() => navigate(location?.state ? location.state : '/'))
-			.catch((error) => console.log(error));
+			.catch(() =>
+				setErrorMsg(
+					'Email or password is not correct. please give correct email and password',
+				),
+			);
 	};
 	const handleGoogleSignIn = () => {
 		googleSignIn()
-			.then(() => navigate(location?.state ? location.state : '/'))
+			.then(() => {
+				googleNotify();
+				setTimeout(
+					() => navigate(location?.state ? location.state : '/'),
+					1000,
+				);
+			})
+
+			.catch((error) => console.log(error));
+	};
+	const handleGithubSignIn = () => {
+		githubSignIn()
+			.then(() => {
+				githubNotify();
+				setTimeout(
+					() => navigate(location?.state ? location.state : '/'),
+					1000,
+				);
+			})
 			.catch((error) => console.log(error));
 	};
 
 	return (
 		<div>
+			<ToastContainer autoClose={1000} />
 			<Helmet>
 				<title>Login</title>
 			</Helmet>
@@ -96,6 +134,7 @@ const LogIn = () => {
 								{errors.password?.message && (
 									<p className='text-red-600'> {errors.password.message}</p>
 								)}
+								{errorMsg && <p className='text-red-600'> {errorMsg}</p>}
 							</div>
 							<div className='form-control mt-6'>
 								<button className='btn btn-primary'>Login</button>
@@ -106,7 +145,9 @@ const LogIn = () => {
 								<span className='font-bold text-lg '>Continue with </span>
 								<FaGoogle></FaGoogle>
 							</div>
-							<div className='label  justify-center items-center gap-1 border-2 rounded-lg'>
+							<div
+								onClick={handleGithubSignIn}
+								className='label  justify-center items-center gap-1 border-2 rounded-lg'>
 								<span className='font-bold text-lg '>Continue with </span>
 								<FaGithub></FaGithub>
 							</div>
