@@ -10,7 +10,7 @@ import TestimonialCard from './TestimonialCard';
 const Testimonials = ({ testimonialsData }) => {
 
 	return (
-		<div className='bg-gray-500 container p-24'>
+		<div className='bg-gray-500 container p-0 sm:p-4 md:p-6 lg:p-24'>
 			<h2 className='text-4xl text-gray-100 font-semibold text-center  my-5'>
 				Testimonials
 			</h2>

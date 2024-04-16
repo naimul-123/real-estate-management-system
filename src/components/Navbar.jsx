@@ -3,18 +3,24 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
-   
-    const { user, logOut } = useContext(AuthContext);
-    
-    const links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/homeloans">Home Loans</NavLink></li>
-        {user && <li><NavLink to="/updateProfile">Update Profile</NavLink></li>}
-        
-    
-    
-    </>
-	
+	const { user, logOut } = useContext(AuthContext);
+
+	const links = (
+		<>
+			<li>
+				<NavLink to='/'>Home</NavLink>
+			</li>
+			<li>
+				<NavLink to='/homeloans'>Home Loans</NavLink>
+			</li>
+			{user && (
+				<li>
+					<NavLink to='/updateProfile'>Update Profile</NavLink>
+				</li>
+			)}
+		</>
+	);
+
 	const handleSignOut = () => {
 		logOut().then().catch();
 	};
@@ -55,14 +61,12 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div className='navbar-center hidden lg:flex'>
-					<ul className='menu menu-horizontal px-1'>
-						{links}
-					</ul>
+					<ul className='menu menu-horizontal space-x-2 px-1'>{links}</ul>
 				</div>
 				<div className='navbar-end'>
 					{user ? (
-						<div className='relative group'>
-							<div className='group flex'>
+						<div className=' flex items-center gap-2'>
+							<div className='group'>
 								<div className='btn group-hover:hidden btn-ghost btn-circle avatar'>
 									<div className='w-10  rounded-full'>
 										<img
@@ -76,36 +80,26 @@ const Navbar = () => {
 									{user?.displayName}
 								</p>
 							</div>
-							<div className='hidden group-hover:flex absolute right-0 z-20 w-60 max-w-sm  flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 bg-gray-900 text-gray-100'>
-								<img
-									src={user?.photoURL}
-									alt=''
-									className='w-20 h-20 mx-auto rounded-full bg-gray-500 aspect-square'
-								/>
-								<div className='space-y-4 text-center divide-y divide-gray-700'>
-									<div className='my-2 space-y-1 flex flex-col items-center'>
-										<h2 className='text-xl font-semibold sm:text-2xl'>
-											{user?.displayName}
-										</h2>
-										<p className='px-5 text-xs sm:text-base text-gray-400'>
-											{user?.email}
-										</p>
-									</div>
-                                </div>
 
-								<Link
-									className='btn btn-sm btn-secondary'
-									onClick={handleSignOut}>
-									Log Out
-								</Link>
-							</div>
+							<Link
+								className='btn btn-sm btn-secondary'
+								onClick={handleSignOut}>
+								Log Out
+							</Link>
 						</div>
 					) : (
-						<Link
-							to='/login'
-							className='btn btn-sm btn-secondary'>
-							Log in
-						</Link>
+						<div className='flex items-center justify-center gap-3'>
+							<Link
+								to='/login'
+								className='btn btn-sm btn-secondary'>
+								Log in
+							</Link>
+							<Link
+								to='/register'
+								className='btn btn-sm btn-secondary'>
+								Register
+							</Link>
+						</div>
 					)}
 				</div>
 			</div>

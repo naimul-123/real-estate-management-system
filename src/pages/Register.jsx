@@ -6,6 +6,7 @@ import { signOut, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
 	const [isShow, setIsShow] = useState(false);
@@ -16,6 +17,10 @@ const Register = () => {
 	} = useForm();
 	const navigate = useNavigate();
 	const { createUser } = useContext(AuthContext);
+	const notify = () =>
+		toast('Successfully Registered!', {
+			position: 'top-center',
+		});
 	const handelRegister = (data) => {
 		const email = data.email;
 		const password = data.password;
@@ -28,7 +33,14 @@ const Register = () => {
 					photoURL: photoUrl,
 				})
 					.then(() => signOut(auth))
-					.then(() => navigate('/login'));
+					.then(() =>
+					{
+						notify();
+						setTimeout(() => {
+							navigate('/login')
+						}, 1000)
+						
+					});
 			})
 			.catch((error) => console.log(error.message));
 	};
@@ -38,7 +50,7 @@ const Register = () => {
 			<Helmet>
 				<title>Register</title>
 			</Helmet>
-
+			<ToastContainer autoClose={1000} />
 			<div className='hero min-h-screen bg-base-200'>
 				<div className='hero-content flex-col'>
 					<div className='text-center'>
@@ -132,7 +144,7 @@ const Register = () => {
 								)}
 							</div>
 							<div className='form-control mt-6'>
-								<button className='btn btn-primary'>Login</button>
+								<button className='btn btn-primary'>Register</button>
 							</div>
 							<div className='form-control mt-6'>
 								<p>

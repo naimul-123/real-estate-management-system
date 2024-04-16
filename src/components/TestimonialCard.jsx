@@ -1,11 +1,9 @@
-import React from 'react';
-
 const TestimonialCard = ({ testimonial }) => {
     const { image, name, title, description} = testimonial;
 	return (
-		<section className='bg-gray-900 max-w-screen-sm mx-auto'>
+		<section className='bg-gray-900  md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto'>
 
-				<div className='flex flex-col items-center  w-full space-y-8 rounded-md lg:h-full lg:p-8  text-gray-100'>
+				<div className='flex flex-col items-center  w-full space-y-8 rounded-md h-full p-2 sm:p-3 md:p-4 lg:p-8  text-gray-100'>
 					<img
 						src={image}
 						alt={name}

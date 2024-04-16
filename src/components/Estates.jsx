@@ -5,7 +5,7 @@ const Estates = ({ data }) => {
             <div>
                 <h2 className='text-3xl font-extrabold'>Available Estates</h2>
             </div>
-			<div className='grid grid-cols-3 gap-2 my-3  mx-auto w-full'>
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-3  mx-auto w-full'>
 				{data &&
 					data.map((estate) => (
 						<EstateCard

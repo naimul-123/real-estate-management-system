@@ -9,9 +9,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const LogIn = () => {
 	const [isShow, setIsShow] = useState(false);
-	const [errorMsg, setErrorMsg] = useState(null);
 	const navigate = useNavigate();
 	const location = useLocation();
+
+	const errorNotify = () =>
+		toast(
+			'Email or password is not correct. please give correct email and password',
+			{
+				position: 'top-center',
+			},
+		);
+
 	const notify = () =>
 		toast('Successfully loged in!', {
 			position: 'top-center',
@@ -34,16 +42,18 @@ const LogIn = () => {
 	} = useForm();
 	const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 	const handleLogin = (data) => {
+		
 		const email = data.email;
 		const password = data.password;
 		signIn(email, password)
-			.then(notify())
-			.then(() => navigate(location?.state ? location.state : '/'))
-			.catch(() =>
-				setErrorMsg(
-					'Email or password is not correct. please give correct email and password',
-				),
-			);
+			.then(() => {
+				notify();
+				setTimeout(
+					() => navigate(location?.state ? location.state : '/'),
+					1000,
+				);
+			})
+			.catch(() => errorNotify());
 	};
 	const handleGoogleSignIn = () => {
 		googleSignIn()
@@ -134,7 +144,6 @@ const LogIn = () => {
 								{errors.password?.message && (
 									<p className='text-red-600'> {errors.password.message}</p>
 								)}
-								{errorMsg && <p className='text-red-600'> {errorMsg}</p>}
 							</div>
 							<div className='form-control mt-6'>
 								<button className='btn btn-primary'>Login</button>

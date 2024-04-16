@@ -17,7 +17,7 @@ const Footer = () => {
 							</svg>
 						</div>
 						<span className='self-center text-2xl font-semibold'>
-							Brand name
+							HavenHunt
 						</span>
 					</a>
 				</div>
@@ -146,7 +146,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className='py-6 text-sm text-center text-gray-400'>
-				© 1968 Company Co. All rights reserved.
+				© 2024 Company Co. All rights reserved.
 			</div>
 		</footer>
 	);

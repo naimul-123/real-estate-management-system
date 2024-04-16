@@ -32,22 +32,25 @@ const UpdateProfile = () => {
 			<Helmet>
 				<title>updateProfile</title>
 			</Helmet>
-			<div className='hero min-h-[80vh] w-full bg-base-200'>
-				<div className='flex  items-center justify-between  flex-col lg:flex-row  flex-grow lg:gap-20'>
-					<div className='text-center flex-shrink-0'>
+			<div className=' flex items-center justify-center min-h-screen w-full bg-base-200'>
+				<div className='flex max-w-screen-lg min-h-[60vh] items-center justify-center  flex-col md:flex-row flex-grow gap-6 md:gap-8 lg:gap-10   shadow-lg bg-base-100 rounded-xl'>
+					<div className='flex flex-col justify-center   p-6 rounded-xl sm:px-12 text-gray-950'>
 						<img
 							src={user?.photoURL}
 							alt=''
-							className='w-20 h-20 mx-auto rounded-full bg-gray-500 aspect-square'
+							className='w-32 h-32 mx-auto rounded-full bg-gray-500 aspect-square'
 						/>
 
-						<div className='space-y-2'>
+						<div className='space-y-4 text-center divide-y divide-gray-700'>
+							<div className='my-2 space-y-1'>
 							<h2 className='text-xl font-semibold sm:text-2xl'>
 								{user?.displayName}
 							</h2>
 							<p className='px-5 text-xs sm:text-base text-gray-400'>
 								{user?.email}
 							</p>
+							</div>
+
 
 							<Link
 								className='btn btn-sm btn-secondary'
@@ -56,7 +59,7 @@ const UpdateProfile = () => {
 							</Link>
 						</div>
 					</div>
-					<div className='card shrink-0 w-full max-w-md shadow-2xl bg-base-100'>
+					<div className='card  w-full '>
 						<form
 							className='card-body'
 							onSubmit={handleSubmit((data) => {
