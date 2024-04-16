@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EstateCard = ({ estate }) => {
-	const { estate_title, image, area, description, status, price } = estate;
+	const { id,estate_title, image, area, description, status, price } = estate;
 
 	return (
 		<div className=' flex flex-wrap rounded-md shadow-md  '>
@@ -26,11 +27,11 @@ const EstateCard = ({ estate }) => {
 					</h2>
 					<p className=''>{description}</p>
 				</div>
-				<button
+				<Link to={`/estate/${id}`}
 					type='button'
 					className='flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-purple-600 text-gray-100'>
 					View Property
-				</button>
+				</Link>
 			</div>
 		</div>
 	);

@@ -3,26 +3,45 @@ import React, { useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-
+import 'swiper/swiper-bundle.css';
 
 // import required modules
-import { Navigation } from 'swiper/modules';
-
+import {
+	Autoplay,
+	Navigation,
+	Pagination,
+	Scrollbar,
+	A11y,
+} from 'swiper/modules';
 
 import Slider from './Slider';
 
-const Hero = ({data}) => {
-
-    return (
-        <>
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                {data && data.map((singleData, idx) => (<SwiperSlide key={idx}><Slider singleData={singleData} ></Slider></SwiperSlide>))}
-
-            </Swiper>
-        </>
-    );
+const Hero = ({ data }) => {
+	return (
+		<>
+			<Swiper
+				navigation
+				autoplay={{
+					delay: 2500,
+					disableOnInteraction: false,
+				}}
+				pagination={{ clickable: true }}
+				scrollbar={{ draggable: true }}
+				modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+				spaceBetween={50}
+				slidesPerView={1}
+				// onSlideChange={() => console.log('slide change')}
+				// onSwiper={(swiper) => console.log(swiper)}
+				className='mySwiper'>
+				{data &&
+					data.map((singleData, idx) => (
+						<SwiperSlide key={idx}>
+							<Slider singleData={singleData}></Slider>
+						</SwiperSlide>
+					))}
+			</Swiper>
+		</>
+	);
 };
 
 export default Hero;
