@@ -1,4 +1,4 @@
-HavenHunt - Residential Real Estate Website
+Website Name: HavenHunt - Residential Real Estate Website
 Welcome to HavenHunt, your go-to destination for finding your dream residential property! Whether you're looking for a cozy apartment, a spacious family home, or a luxurious villa, we've got you covered.
 
 Live Website
@@ -10,11 +10,12 @@ HavenHunt is a residential real estate website designed to help users find prope
 Features
 
 
-Interactive Maps: Explore properties visually using interactive maps powered by Leaflet and React Leaflet.
-Responsive Design: Enjoy a seamless browsing experience across different devices and screen sizes.
-Toast Notifications: Receive instant feedback with React Toastify notifications for actions like 
-Form Handling: Utilize React Hook Form for efficient form handling and validation.
-Firebase Integration: Leverage Firebase for backend services such as authentication, data storage, and hosting.
+    01. Interactive Maps: Explore properties visually using interactive maps powered by Leaflet and React Leaflet.
+    02.Responsive Design: Enjoy a seamless browsing experience across different devices and screen sizes.
+    03.Toast Notifications: Receive instant feedback with React Toastify notifications for actions like login register update user etc.
+    04.Form Handling: Utilize React Hook Form for efficient form handling and validation.
+    05.AOS animation: Included animation to feel more live website using AOS animation.
+    06.Firebase Integration: Leverage Firebase for backend services such as authentication, data storage, and hosting.
 
 Dependencies
 aos: ^2.3.4

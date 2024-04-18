@@ -1,4 +1,4 @@
-import { useContext }  from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
@@ -6,9 +6,14 @@ import { useForm } from 'react-hook-form';
 
 import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import { toast, ToastContainer } from 'react-toastify';
 
 const UpdateProfile = () => {
-	
+	const notify = () =>
+		toast('User profile updated successfully!', {
+			position: 'top-center',
+		});
+
 	const {
 		register,
 		handleSubmit,
@@ -23,17 +28,25 @@ const UpdateProfile = () => {
 		const name = data.name;
 		const photoUrl = data.photo;
 		updateUser(name, photoUrl)
-			.then(() => navigate('/'))
+			.then(() => {
+				notify();
+				setTimeout(
+					() => navigate('/'),
+					2000,
+				);
+			})
 			.catch((error) => console.log(error.message));
 	};
 
 	return (
 		<div>
+			<ToastContainer autoClose={1000} />
 			<Helmet>
 				<title>updateProfile</title>
 			</Helmet>
-			<div className=' flex items-center justify-center min-h-screen w-full bg-base-200'>
-				<div className='flex max-w-screen-lg min-h-[60vh] items-center justify-center  flex-col md:flex-row flex-grow gap-6 md:gap-8 lg:gap-10   shadow-lg bg-base-100 rounded-xl'>
+
+			<div className="hero min-h-screen bg-base-200">
+				<div className="hero-content flex-col lg:flex-row-reverse">
 					<div className='flex flex-col justify-center   p-6 rounded-xl sm:px-12 text-gray-950'>
 						<img
 							src={user?.photoURL}
@@ -43,12 +56,12 @@ const UpdateProfile = () => {
 
 						<div className='space-y-4 text-center divide-y divide-gray-700'>
 							<div className='my-2 space-y-1'>
-							<h2 className='text-xl font-semibold sm:text-2xl'>
-								{user?.displayName}
-							</h2>
-							<p className='px-5 text-xs sm:text-base text-gray-400'>
-								{user?.email}
-							</p>
+								<h2 className='text-xl font-semibold sm:text-2xl'>
+									{user?.displayName}
+								</h2>
+								<p className='px-5 text-xs sm:text-base text-gray-400'>
+									{user?.email}
+								</p>
 							</div>
 
 
@@ -59,7 +72,7 @@ const UpdateProfile = () => {
 							</Link>
 						</div>
 					</div>
-					<div className='card  w-full '>
+					<div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 						<form
 							className='card-body'
 							onSubmit={handleSubmit((data) => {
@@ -79,6 +92,18 @@ const UpdateProfile = () => {
 								{errors.name?.message && (
 									<p className='text-red-600'> {errors.name.message}</p>
 								)}
+							</div>
+							<div className='form-control'>
+								<label className='label'>
+									<span className='label-text'>Email</span>
+								</label>
+								<input
+									type='text'
+									disabled
+									defaultValue={user?.email}
+									className='input input-bordered'
+								/>
+
 							</div>
 							<div className='form-control'>
 								<label className='label'>

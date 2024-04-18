@@ -42,7 +42,7 @@ const LogIn = () => {
 	} = useForm();
 	const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 	const handleLogin = (data) => {
-		
+
 		const email = data.email;
 		const password = data.password;
 		signIn(email, password)
@@ -88,7 +88,7 @@ const LogIn = () => {
 			<div className='flex items-center justify-center min-h-screen bg-base-200'>
 				<div className='hero-content flex-col'>
 					<div className='text-center'>
-						<h1 className='text-3xl font-bold'>Login now!</h1>
+						<h1 className='text-3xl text-secondary font-bold'>Login now!</h1>
 					</div>
 					<div className='card w-full shadow-2xl bg-base-100'>
 						<form
@@ -123,14 +123,7 @@ const LogIn = () => {
 												value: 6,
 												message: 'Password must be atleast 6 charecters',
 											},
-											validate: {
-												uppercase: (value) =>
-													/[A-Z]/.test(value) ||
-													'Password must have at least one uppercase letter.',
-												lowercase: (value) =>
-													/[a-z]/.test(value) ||
-													'Password must have at least one lowercase letter.',
-											},
+
 										})}
 										placeholder='password'
 										className='grow'
@@ -146,17 +139,17 @@ const LogIn = () => {
 								)}
 							</div>
 							<div className='form-control mt-6'>
-								<button className='btn btn-primary'>Login</button>
+								<button className='btn btn-secondary'>Login</button>
 							</div>
 							<div
 								onClick={handleGoogleSignIn}
-								className='label mt-6  justify-center items-center gap-1 border-2 rounded-lg'>
+								className='label mt-1  justify-center items-center gap-1 border-2 rounded-lg'>
 								<span className='font-bold text-lg '>Continue with </span>
 								<FaGoogle></FaGoogle>
 							</div>
 							<div
 								onClick={handleGithubSignIn}
-								className='label  justify-center items-center gap-1 border-2 rounded-lg'>
+								className='label mt-1  justify-center items-center gap-1 border-2 rounded-lg'>
 								<span className='font-bold text-lg '>Continue with </span>
 								<FaGithub></FaGithub>
 							</div>
@@ -168,7 +161,7 @@ const LogIn = () => {
 										className='link font-semibold link-secondary'>
 										Register here
 									</Link>
-								</p>
+								</p>d
 							</div>
 						</form>
 					</div>

@@ -33,13 +33,12 @@ const Register = () => {
 					photoURL: photoUrl,
 				})
 					.then(() => signOut(auth))
-					.then(() =>
-					{
+					.then(() => {
 						notify();
 						setTimeout(() => {
 							navigate('/login')
 						}, 1000)
-						
+
 					});
 			})
 			.catch((error) => console.log(error.message));
@@ -54,7 +53,7 @@ const Register = () => {
 			<div className='hero min-h-screen bg-base-200'>
 				<div className='hero-content flex-col'>
 					<div className='text-center'>
-						<h1 className='text-5xl font-bold'>Register now!</h1>
+						<h1 className='text-3xl md:text-5xl font-bold text-primary'>Register now!</h1>
 					</div>
 					<div className='card shrink-0 w-full max-w-lg shadow-2xl bg-base-100'>
 						<form
@@ -151,7 +150,7 @@ const Register = () => {
 									Already have an account? Please{' '}
 									<Link
 										to='/login'
-										className='link font-semibold link-secondary'>
+										className='link font-semibold link-primary'>
 										Login here
 									</Link>
 								</p>
