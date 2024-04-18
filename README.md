@@ -12,7 +12,7 @@ Features
 
     01. Interactive Maps: Explore properties visually using interactive maps powered by Leaflet and React Leaflet.
     02.Responsive Design: Enjoy a seamless browsing experience across different devices and screen sizes.
-    03.Toast Notifications: Receive instant feedback with React Toastify notifications for actions like login register update user etc.
+    03.Toast Notifications: Receive instant feedback with React Toastify notifications for actions like login, register and update user etc.
     04.Form Handling: Utilize React Hook Form for efficient form handling and validation.
     05.AOS animation: Included animation to feel more live website using AOS animation.
     06.Firebase Integration: Leverage Firebase for backend services such as authentication, data storage, and hosting.
