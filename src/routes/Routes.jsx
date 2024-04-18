@@ -1,4 +1,4 @@
-import { Route, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from '../App'
 import Home from "../pages/Home";
 import LogIn from "../pages/LogIn";
@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import UpdateProfile from "../pages/UpdateProfile";
 import HomeLoans from "../pages/HomeLoans";
+import UserProfile from "../pages/UserProfile";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -28,6 +29,11 @@ const routes = createBrowserRouter([
             {
                 path: '/updateprofile',
                 element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+
+            },
+            {
+                path: '/userprofile',
+                element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
 
             },
             {

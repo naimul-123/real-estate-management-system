@@ -4,10 +4,10 @@ import 'leaflet/dist/leaflet.css';
 const GeoLocation = ({latitude, longitude, location}) => {
     const position = [latitude, longitude];
     return (
-        <div>
+        <div className='w-full'>
           <h2 className='text-3xl my-3 text-gray-950 font-semibold'>Location</h2>
 				<MapContainer
-					className='w-full min-h-[50vh] border'
+					className='w-full min-h-96 border'
 					center={position}
 					zoom={13}
 					scrollWheelZoom={false}>

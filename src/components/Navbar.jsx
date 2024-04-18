@@ -18,6 +18,12 @@ const Navbar = () => {
 					<NavLink to='/updateProfile'>Update Profile</NavLink>
 				</li>
 			)}
+
+			{!user && (
+				<li>
+					<NavLink to='/register'>Register</NavLink>
+				</li>
+			)}
 		</>
 	);
 
@@ -50,7 +56,7 @@ const Navbar = () => {
 						</div>
 						<ul
 							tabIndex={0}
-							className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'>
+							className='menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52'>
 							{links}
 						</ul>
 					</div>
@@ -66,42 +72,21 @@ const Navbar = () => {
 				<div className='navbar-end'>
 					{user ? (
 						<div className=' flex items-center gap-2'>
-							<div className='group relative'>
-								<div className='btn   group-hover:hidden btn-ghost btn-circle avatar'>
-									<div className='w-10  rounded-full'>
-										<img
-											className=''
-											alt='Tailwind CSS Navbar component'
-											src={user?.photoURL}
-										/>
-									</div>
-								</div>
-								<p className='hidden text-xl font-bold text-gray-900 sm:group-hover:block'>
+							<Link
+								to='/userprofile'
+								className='group relative'>
+								
+									<img
+										className='w-10 h-10 group-hover:hidden rounded-full'
+										alt={user?.displayName}
+										src={user?.photoURL}
+									/>
+								
+
+								<p className='hidden text-xl font-bold text-gray-900 group-hover:inline'>
 									{user?.displayName}
 								</p>
-								<div className='max-[641px]:group-hover:flex flex-col hidden absolute z-10 my-4 right-0 justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-gray-200 text-gray-900'>
-									<img
-										src={user?.photoURL}
-										alt=''
-										className='w-24 h-24 mx-auto rounded-full bg-gray-500 aspect-square'
-									/>
-									<div className='space-y-4  text-center divide-y divide-gray-700 '>
-										<div className='my-2 space-y-1'>
-											<h2 className='text-xl font-semibold sm:text-2xl'>
-												{user?.displayName}
-											</h2>
-											<p className='px-5 text-xs sm:text-base text-gray-400'>
-												{user?.email}
-											</p>
-											<Link
-												className='btn btn-sm btn-secondary'
-												onClick={handleSignOut}>
-												Log Out
-											</Link>
-										</div>
-									</div>
-								</div>
-							</div>
+							</Link>
 
 							<Link
 								className='btn hidden sm:inline-flex btn-sm btn-secondary'
@@ -115,11 +100,6 @@ const Navbar = () => {
 								to='/login'
 								className='btn btn-sm btn-secondary'>
 								Log in
-							</Link>
-							<Link
-								to='/register'
-								className='btn hidden sm:inline-flex btn-sm btn-secondary'>
-								Register
 							</Link>
 						</div>
 					)}

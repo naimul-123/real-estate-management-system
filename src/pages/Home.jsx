@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
 import Testimonials from '../components/Testimonials';
 import GeoLocation from '../components/GeoLocation';
+import Team from '../components/Team';
 
 const Home = () => {
 	const data = useContext(DataContext);
@@ -21,6 +22,7 @@ const Home = () => {
 			</Helmet>
 			<Hero data={data}></Hero>
 			<Estates data={data}></Estates>
+			<Team/>
 			<Testimonials testimonialsData = {testimonialsData}></Testimonials>
 			
 		</div>

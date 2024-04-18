@@ -1,0 +1,30 @@
+[
+	{
+		"name": "Jørn Utzon",
+		"nationality": "Danish",
+		"notable_works": ["Sydney Opera House"],
+		"image": "https://i.ibb.co/sw1jnDf/team1.png",
+		"description": "Jørn Utzon was a Danish architect known for his groundbreaking design of the Sydney Opera House. His innovative approach to architecture has left a lasting legacy."
+	},
+	{
+		"name": "Zaha Hadid",
+		"nationality": "Iraqi-British",
+		"notable_works": ["Heydar Aliyev Center", "MAXXI Museum"],
+		"image": "https://i.ibb.co/vVSjgTv/team2.png",
+		"description": "Zaha Hadid was an Iraqi-British architect known for her fluid and futuristic designs. She was the first woman to receive the Pritzker Architecture Prize and has left an indelible mark on the architectural world."
+	},
+	{
+		"name": "Frank Gehry",
+		"nationality": "Canadian-American",
+		"notable_works": ["Guggenheim Museum Bilbao", "Walt Disney Concert Hall"],
+		"image": "https://i.ibb.co/ynPQ7RN/team3.png",
+		"description": "Frank Gehry is a Canadian-American architect known for his avant-garde designs and innovative use of materials. His buildings often feature undulating forms and bold shapes."
+	},
+	{
+		"name": "Norman Foster",
+		"nationality": "British",
+		"notable_works": ["The Gherkin", "Millau Viaduct"],
+		"image": "https://i.ibb.co/3SMyDBC/team4.png",
+		"description": "Norman Foster is a British architect known for his sleek and modern designs. His work emphasizes sustainability and efficiency, and he has received numerous awards for his contributions to architecture."
+	}
+]

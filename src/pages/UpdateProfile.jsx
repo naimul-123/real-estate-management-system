@@ -1,14 +1,14 @@
-import { useContext, useState } from 'react';
+import { useContext }  from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 import { useForm } from 'react-hook-form';
-import { signOut, updateProfile } from 'firebase/auth';
-import auth from '../firebase/firebase.config';
+
+
 import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 
 const UpdateProfile = () => {
-	const [isShow, setIsShow] = useState(false);
+	
 	const {
 		register,
 		handleSubmit,
