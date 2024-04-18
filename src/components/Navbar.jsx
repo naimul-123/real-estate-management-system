@@ -63,7 +63,7 @@ const Navbar = () => {
 					<Link
 						to='/'
 						className='btn btn-ghost text-xl'>
-						HaventHunt
+						HavenHunt
 					</Link>
 				</div>
 				<div className='navbar-center hidden lg:flex'>
