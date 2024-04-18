@@ -1,11 +1,6 @@
-import React, { useContext } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import PropTypes from 'prop-types';
 import 'swiper/swiper-bundle.css';
-
-// import required modules
 import {
 	Autoplay,
 	Navigation,
@@ -43,5 +38,7 @@ const Hero = ({ data }) => {
 		</>
 	);
 };
-
+Hero.propTypes = {
+	data: PropTypes.array.isRequired
+}
 export default Hero;

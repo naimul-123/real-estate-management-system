@@ -11,23 +11,32 @@ const UserProfile = () => {
 	};
 
 	return (
-		<div className='container flex flex-col justify-center items-center mx-auto'>
+        <div className='hero min-h-screen bg-base-200'>
+             
 			<Helmet>
 				<title>userprofile</title>
-			</Helmet>
-
-			<div className="card ">
-				<figure className="px-10 pt-10">
-					<img
+            </Helmet>
+            
+            <div className='hero-content flex-col'>
+               
+				<div className='flex flex-col justify-center   p-6 rounded-xl sm:px-12 text-gray-950'>
+					
+                    <img
 						src={user?.photoURL}
-						alt={user?.displayName}
+						alt=''
 						className='w-32 h-32 mx-auto rounded-full bg-gray-500 aspect-square'
 					/>
-				</figure>
-				<div className="card-body items-center text-center">
-					<h2 className="card-title">{user?.displayName}</h2>
-					<p>{user?.email}</p>
-					<div className="card-actions">
+
+					<div className='space-y-4 text-center divide-y divide-gray-700'>
+						<div className='my-2 space-y-1'>
+							<h2 className='text-xl font-semibold sm:text-2xl'>
+								{user?.displayName}
+							</h2>
+							<p className='px-5 text-xs sm:text-base text-gray-400'>
+								{user?.email}
+							</p>
+						</div>
+
 						<Link
 							className='btn btn-sm btn-secondary'
 							onClick={handleSignOut}>
@@ -35,9 +44,47 @@ const UserProfile = () => {
 						</Link>
 					</div>
 				</div>
+				<div className='card shrink-0 w-full shadow-2xl bg-base-100'>
+					<div className='card-body'>
+						<div className='form-control'>
+							<label className='label'>
+								<span className='label-text'>Name</span>
+							</label>
+							<input
+								defaultValue={user.displayName}
+								type='text'
+								disabled
+								className='input input-bordered'
+							/>
+						</div>
+						<div className='form-control'>
+							<label className='label'>
+								<span className='label-text'>Email</span>
+							</label>
+							<input
+								type='text'
+								disabled
+								defaultValue={user?.email}
+								className='input input-bordered'
+							/>
+						</div>
+						<div className='form-control'>
+							<label className='label'>
+								<span className='label-text'>Photo Url</span>
+							</label>
+							<input
+								type='text'
+								defaultValue={user.photoURL}
+								disabled
+								className='input input-bordered'
+							/>
+						</div>
+
+						
+					</div>
+				</div>
 			</div>
 		</div>
-
 	);
 };
 
