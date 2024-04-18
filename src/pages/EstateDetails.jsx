@@ -41,8 +41,8 @@ const EstateDetails = () => {
 			</div>
 			<div className='mx-auto w-full my-5 text-center'>
 				<p className='text-xl md:text-2xl lg:3xl text-red-950 font-bold'>
-					For {status} | {price} | {bedrooms} Bedrooms | {bathrooms} Bathrooms |{' '}
-					{segment_name}{' '}
+					{segment_name} |  {area} |  {bedrooms} Bedrooms | {bathrooms} Bathrooms |
+					{price}  For {status}
 				</p>
 			</div>
 
@@ -60,7 +60,7 @@ const EstateDetails = () => {
 						<h2 className='card-title text-gray-900 text-2xl md:text-3xl font-bold'>
 							Details information
 						</h2>
-						
+
 
 						<p className='inline-flex items-center text-base gap-1'>
 							{' '}

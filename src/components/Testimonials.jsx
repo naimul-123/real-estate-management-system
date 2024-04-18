@@ -6,7 +6,7 @@ import 'swiper/swiper-bundle.css';
 // import required modules
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import TestimonialCard from './TestimonialCard';
-
+import PropTypes from 'prop-types';
 const Testimonials = ({ testimonialsData }) => {
 
 	return (
@@ -56,5 +56,7 @@ const Testimonials = ({ testimonialsData }) => {
 
 	);
 };
-
+Testimonials.propTypes = {
+	testimonialsData: PropTypes.array.isRequired,
+}
 export default Testimonials;

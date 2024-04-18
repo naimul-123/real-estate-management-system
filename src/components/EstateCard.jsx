@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 const EstateCard = ({ estate }) => {
 	const { id, estate_title, image, segment_name, area, bedrooms, bathrooms, description, status, price } = estate;
 
@@ -12,8 +11,8 @@ const EstateCard = ({ estate }) => {
 			<div className="card-body">
 				<div className='mx-auto w-full my-5 text-center'>
 					<p className='text-lg text-red-950 font-bold'>
-						For {status} | {price} | {bedrooms} Bedrooms | {bathrooms} Bathrooms |{' '}
-						{segment_name}{' '}
+						{segment_name} |  {area} |  {bedrooms} Bedrooms | {bathrooms} Bathrooms |
+						{price}  For {status}
 					</p>
 				</div>
 				<h2 className="card-title">{estate_title}</h2>
@@ -36,5 +35,7 @@ const EstateCard = ({ estate }) => {
 
 	);
 };
-
+EstateCard.propTypes = {
+	estate: PropTypes.object.isRequired
+}
 export default EstateCard;

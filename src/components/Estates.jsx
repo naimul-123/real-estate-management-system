@@ -1,5 +1,6 @@
 import EstateCard from '../components/EstateCard';
 import arrow from '/img/Arrow 4.png';
+import PropTypes from 'prop-types';
 const Estates = ({ data }) => {
 	return (
 		<div className='my-10 max-w-screen-2xl w-full mx-auto' data-aos="fade-up"
@@ -26,5 +27,7 @@ const Estates = ({ data }) => {
 		</div>
 	);
 };
-
+Estates.propTypes = {
+	data: PropTypes.array.isRequired
+}
 export default Estates;
