@@ -50,12 +50,12 @@ const Register = () => {
 				<title>Register</title>
 			</Helmet>
 			<ToastContainer autoClose={1000} />
-			<div className='hero min-h-screen bg-base-200'>
+			<div className='flex items-center justify-center min-h-screen bg-base-200'>
 				<div className='hero-content flex-col'>
 					<div className='text-center'>
-						<h1 className='text-3xl md:text-5xl font-bold text-primary'>Register now!</h1>
+						<h2 className='text-3xl md:text-5xl font-bold text-primary'>Register now!</h2>
 					</div>
-					<div className='card shrink-0 w-full max-w-lg shadow-2xl bg-base-100'>
+					<div className='card shrink-0 w-full shadow-2xl bg-base-100'>
 						<form
 							className='card-body'
 							onSubmit={handleSubmit((data) => {
@@ -150,7 +150,7 @@ const Register = () => {
 									Already have an account? Please{' '}
 									<Link
 										to='/login'
-										className='link font-semibold link-primary'>
+										className='link font-semibold link-secondary'>
 										Login here
 									</Link>
 								</p>

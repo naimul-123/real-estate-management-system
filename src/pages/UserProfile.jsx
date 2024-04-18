@@ -17,9 +17,9 @@ const UserProfile = () => {
 				<title>userprofile</title>
             </Helmet>
             
-            <div className='hero-content flex-col'>
+            <div className='hero-content flex-col lg:flex-row-reverse '>
                
-				<div className='flex flex-col justify-center   p-6 rounded-xl sm:px-12 text-gray-950'>
+				<div className='flex flex-col   justify-center   p-6 rounded-xl sm:px-12 text-gray-950'>
 					
                     <img
 						src={user?.photoURL}

@@ -88,7 +88,7 @@ const LogIn = () => {
 			<div className='flex items-center justify-center min-h-screen bg-base-200'>
 				<div className='hero-content flex-col'>
 					<div className='text-center'>
-						<h1 className='text-3xl text-secondary font-bold'>Login now!</h1>
+						<h2 className='text-3xl md:text-4xl lg:text-5xl text-primary font-bold'>Login now!</h2>
 					</div>
 					<div className='card w-full shadow-2xl bg-base-100'>
 						<form
@@ -139,7 +139,7 @@ const LogIn = () => {
 								)}
 							</div>
 							<div className='form-control mt-6'>
-								<button className='btn btn-secondary'>Login</button>
+								<button className='btn btn-primary'>Login</button>
 							</div>
 							<div
 								onClick={handleGoogleSignIn}
