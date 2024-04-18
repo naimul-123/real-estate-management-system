@@ -2,39 +2,38 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const EstateCard = ({ estate }) => {
-	const { id, estate_title, image, area, description, status, price } = estate;
+	const { id, estate_title, image, segment_name, area, bedrooms, bathrooms, description, status, price } = estate;
 
 	return (
-		<div className=' flex flex-wrap rounded-md shadow-md  '>
-			<div className='relative'>
-				<div className='absolute flex justify-between  top-2 left-2 right-2'>
-					<p className=' badge badge-primary'>For {status}</p>
-					<p className=' badge badge-primary'> {price}</p>
-				</div>
-				<div className='w-full min-h-72'>
-					<img
-						src={image}
-						alt={estate_title}
-						className='object-cover object-center w-full h-full rounded-t-md'
-					/>
-				</div>
-			</div>
 
-			<div className='flex flex-col justify-between p-6 space-y-8 items-stretch grow'>
-				<div className='space-y-2 '>
-					<h2 className='text-3xl font-semibold tracking-wide'>
-						{estate_title}
-					</h2>
-					<p className=''>{description}</p>
+		<div className="card max-w-screen-sm bg-base-100 shadow-xl" data-aos="fade-up"
+			data-aos-duration="2000">
+			<figure className='h-72'><img src={image} alt={estate_title} className='h-full' /></figure>
+			<div className="card-body">
+				<div className='mx-auto w-full my-5 text-center'>
+					<p className='text-lg text-red-950 font-bold'>
+						For {status} | {price} | {bedrooms} Bedrooms | {bathrooms} Bathrooms |{' '}
+						{segment_name}{' '}
+					</p>
 				</div>
-				<Link
-					to={`/estate/${id}`}
-					type='button'
-					className='flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-purple-600 text-gray-100'>
-					View Property
-				</Link>
+				<h2 className="card-title">{estate_title}</h2>
+				<p>{description}</p>
+				<div className="card-actions justify-center">
+
+					<Link
+						to={`/estate/${id}`}
+						className=' w-full p-3 text-center font-semibold tracking-wide rounded-md bg-purple-600 text-gray-100'
+
+					>
+						View Property
+					</Link>
+
+				</div>
 			</div>
 		</div>
+
+
+
 	);
 };
 
